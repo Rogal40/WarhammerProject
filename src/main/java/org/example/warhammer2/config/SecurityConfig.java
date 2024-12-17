@@ -18,15 +18,16 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain (HttpSecurity http) throws Exception{
-
-        http.authorizeHttpRequests(auth->auth.requestMatchers("/users/register", "/login","/register").permitAll().anyRequest().authenticated())
-                .formLogin(form->form.loginPage("/login")
-                        .defaultSuccessUrl("/books",true));
-
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/users/register", "/login", "/register").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN") // Только админ имеет доступ
+                        .anyRequest().authenticated())
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/books", true))
+                .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login"));
         return http.build();
-
-
-
     }
+
 }
