@@ -1,5 +1,6 @@
 package org.example.warhammer2.service;
 
+import jakarta.transaction.Transactional;
 import org.example.warhammer2.entity.User;
 import org.example.warhammer2.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
 
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(()->new UsernameNotFoundException("User not found"));

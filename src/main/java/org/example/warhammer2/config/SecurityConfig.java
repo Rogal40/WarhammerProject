@@ -22,7 +22,7 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(auth->auth.requestMatchers("/users/register", "/login","/register").permitAll().anyRequest().authenticated())
                 .formLogin(form->form.loginPage("/login")
-                        .defaultSuccessUrl("/tasks",true));
+                        .defaultSuccessUrl("/books",true));
 
         return http.build();
 

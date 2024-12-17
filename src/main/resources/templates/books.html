@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+</head>
+<body>
+<h1>Book List</h1>
+<table border="1">
+    <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="book : ${books}">
+        <td>
+            <img th:src="@{${book.coverImage}}" alt="Cover Image" width="100" height="150"/>
+        </td>
+        <td th:text="${book.title}">Book Title</td>
+        <td th:text="${book.author}">Author Name</td>
+        <td>
+            <a th:href="@{/books/{id}(id=${book.id})}">View Details</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
