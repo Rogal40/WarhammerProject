@@ -18,8 +18,6 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-
-
     @Autowired
     private PasswordEncoder passwordEncoder;
 
