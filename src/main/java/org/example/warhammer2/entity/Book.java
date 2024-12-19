@@ -2,6 +2,8 @@ package org.example.warhammer2.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "books")
 public class Book {
@@ -18,6 +20,9 @@ public class Book {
     private String description;
 
     private String coverImage;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
 
     public Long getId() {
         return id;
