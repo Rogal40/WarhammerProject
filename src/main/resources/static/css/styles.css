@@ -1,9 +1,12 @@
-/* Общий стиль для страницы */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
+    background-image: url('/static/css/uploads/BlackLibrary.jpg');
+    background-size: cover; /* Изображение будет растянуто по всей странице */
+    background-repeat: no-repeat; /* Избегаем повторения */
+    background-attachment: fixed; /* Фон остаётся на месте при прокрутке */
 }
 
 

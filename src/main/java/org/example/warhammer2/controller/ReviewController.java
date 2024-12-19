@@ -20,7 +20,7 @@ public class ReviewController {
 
     @PostMapping("/add/{bookId}")
     public String addReview(@PathVariable Long bookId, @RequestParam String comment) {
-        // Используем новый метод из ReviewService
+
         reviewService.addReview(bookId, comment);
         return "redirect:/books/" + bookId;
     }
